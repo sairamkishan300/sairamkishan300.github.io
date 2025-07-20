@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Jushh</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 90%;
+            margin: 20px;
+        }
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 10px;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #audioPrompt {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="audioPrompt" class="container">
+        <h2>🎵 Can I play you a song? 🎵</h2>
+        <button class="button" onclick="startExperience()">Yes, Play Music</button>
+    </div>
+
+    <div id="mainContent" class="hidden">
+        <div class="container">
+            <h1 class="title">Happy Birthday Jushh ∞</h1>
+            <button class="button" onclick="window.location.href='message.html'">Click for your surprise ❤️</button>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="" type="audio/mp3">
+    </audio>
+
+    <script src="config.js"></script>
+    <script>
+        // Set background image from config
+        document.body.style.backgroundImage = `url('${config.backgroundImage}')`;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+
+        function startExperience() {
+            document.getElementById('audioPrompt').style.display = 'none';
+            document.getElementById('mainContent').classList.remove('hidden');
+            const audio = document.getElementById('bgMusic');
+            audio.src = config.audioPath;
+            audio.play();
+        }
+    </script>
+</body>
+</html> 

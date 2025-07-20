@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Surprise</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 90%;
+            margin: 20px;
+            text-align: center;
+        }
+        .message {
+            font-size: 1.5em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .hearts {
+            font-size: 2em;
+            animation: float 2s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hearts">❤️ 💝 ❤️</div>
+        <p class="message">
+            Click here to see the video I made for us!! 🎥
+        </p>
+        <a id="videoLink" href="#" target="_blank" class="button">Watch Our Video ❤️</a>
+        <p class="message">
+            Finally... Happy Birthday My Love! 🎂<br>
+            Thank you for always being by my side 💑
+        </p>
+        <div class="hearts">❤️ 💝 ❤️</div>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+        // Set background image from config
+        document.body.style.backgroundImage = `url('${config.backgroundImage}')`;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        
+        document.getElementById('videoLink').href = config.videoLink;
+    </script>
+</body>
+</html> 
